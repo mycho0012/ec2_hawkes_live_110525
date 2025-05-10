@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  hawkes-trader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hawkes-trading-bot
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    environment:
+      - TZ=Asia/Seoul
